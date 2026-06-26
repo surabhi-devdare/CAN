@@ -1,0 +1,43 @@
+# =========================
+# Build outputs (NEVER commit)
+# =========================
+Debug/
+Release/
+*.elf
+*.hex
+*.map
+*.o
+*.out
+*.bin
+
+# =========================
+# IDE / Eclipse / e2 studio
+# =========================
+.settings/
+.project
+.cproject
+.clangd
+*.launch
+
+# =========================
+# Renesas / RA tool generated
+# =========================
+ra_cfg.txt
+configuration.xml
+.api_xml
+.secure_azone
+.secure_rzone
+R7FA2L1AB2DFP.pincfg
+
+# =========================
+# Debug / probe tools
+# =========================
+JLinkLog.log
+*.jlink
+
+# =========================
+# Temporary / system files
+# =========================
+*.bak
+*.tmp
+*.log
