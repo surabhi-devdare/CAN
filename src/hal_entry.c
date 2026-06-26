@@ -116,41 +116,7 @@ void hal_entry(void)
 /*******************************************************************************************************************//**
  * This function is called when an CAN event is occurred and SET the respective flags.
  **********************************************************************************************************************/
-void can_callback(can_callback_args_t *p_args)
-{
-    switch (p_args->event)
-    {
-        case CAN_EVENT_TX_COMPLETE:
-        {
-            b_can_tx = true;        //set flag bit
-            break;
-        }
 
-        case CAN_EVENT_RX_COMPLETE:
-        {
-            b_can_rx = true;
-            memcpy(&g_can_rx_frame, &p_args->frame, sizeof(can_frame_t));  //copy the received data to rx_frame
-            break;
-        }
-
-        case CAN_EVENT_MAILBOX_MESSAGE_LOST:    //overwrite/overrun error event
-        case CAN_EVENT_BUS_RECOVERY:            //Bus recovery error event
-        case CAN_EVENT_ERR_BUS_OFF:             //error Bus Off event
-        case CAN_EVENT_ERR_PASSIVE:             //error passive event
-        case CAN_EVENT_ERR_WARNING:             //error warning event
-        case CAN_EVENT_ERR_BUS_LOCK:            //error bus lock
-        case CAN_EVENT_ERR_CHANNEL:             //error channel
-        case CAN_EVENT_ERR_GLOBAL:              //error global
-        case CAN_EVENT_TX_ABORTED:              //error transmit abort
-        case CAN_EVENT_TX_FIFO_EMPTY:           //error transmit FIFO is empty
-        case CAN_EVENT_FIFO_MESSAGE_LOST:       //error FIFO message lost
-        {
-            b_can_err = true;                   //set flag bit
-            break;
-        }
-
-    }
-}
 
 
 /*******************************************************************************************************************//**
